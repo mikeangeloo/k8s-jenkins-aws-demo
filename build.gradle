@@ -22,11 +22,11 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-jetty'
-	compileOnly 'org.projectlombok:lombok'
-	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
+        compileOnly 'org.projectlombok:lombok:1.18.30' // Asegúrate de usar la versión más reciente
+        annotationProcessor 'org.projectlombok:lombok:1.18.30'
 }
 
 test {
