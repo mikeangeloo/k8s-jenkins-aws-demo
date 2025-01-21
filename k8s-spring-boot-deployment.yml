@@ -20,14 +20,14 @@ spec:
           env:
             - name: PORT
               value: "8080"
-      resources:
-        requests:
-          memory: "128Mi"
-          cpu: "250m"
-        limits:
-          memory: "256Mi"
-          cpu: "500m"
-          
+          resources:    # Mover esta sección aquí, dentro del contenedor
+            requests:
+              memory: "64Mi"
+              cpu: "100m"
+            limits:
+              memory: "128Mi"
+              cpu: "250m"
+
 ---
 apiVersion: v1
 kind: Service
@@ -37,6 +37,7 @@ spec:
   type: LoadBalancer
   ports:
     - port: 80
-      targetPort: 8080
+      targetPort: 9002 # Añadido para redirigir al puerto interno del contenedor
   selector:
-    app: jhooq-springboot
+    app: jhooq-springboot # Selector para apuntar al Deployment
+
